@@ -1,12 +1,11 @@
-import { Button } from "rsuite";
-import { useRandomFact } from "./hooks/useRandomFact";
+import { Button } from 'rsuite';
+import { useRandomFact } from './hooks/useRandomFact';
 
-import { Wrapper, Text } from "./RandomFact.style";
+import { Wrapper, Text } from './RandomFact.style';
 
 const RandomFact = () => {
   const { handleClick, randomFact } = useRandomFact();
-  const textMessage =
-    randomFact?.fact || "Unfortunately, the list of facts is empty";
+  const textMessage = randomFact?.fact || 'Unfortunately, the list of facts is empty';
 
   return (
     <Wrapper>

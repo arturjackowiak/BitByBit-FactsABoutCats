@@ -1,7 +1,7 @@
-import { MouseEvent, useRef } from "react";
-import ReactDOM from "react-dom";
+import { MouseEvent, useRef } from 'react';
+import ReactDOM from 'react-dom';
 
-import { ModalBackground, ModalContainer } from "./Modal.style";
+import { ModalBackground, ModalContainer } from './Modal.style';
 
 interface IModalProps {
   children: (string | JSX.Element) | JSX.Element[];
@@ -21,7 +21,7 @@ const Modal = ({ children, closeHandler }: IModalProps) => {
     <ModalBackground ref={backgroundRef} onClick={closeModal}>
       <ModalContainer>{children}</ModalContainer>
     </ModalBackground>,
-    document.getElementById("modal")
+    document.getElementById('modal')
   );
 };
 

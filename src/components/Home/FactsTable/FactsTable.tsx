@@ -1,7 +1,7 @@
-import { Table, Button } from "rsuite";
+import { Table, Button } from 'rsuite';
 
-import { useFactsContext } from "../../../context/Facts/FactsContext";
-import { FactType } from "../../../types/FactType";
+import { useFactsContext } from '../../../context/Facts/FactsContext';
+import { FactType } from '../../../types/FactType';
 
 const { Column, HeaderCell, Cell } = Table;
 
@@ -13,25 +13,16 @@ const FactsTable = ({ handleEdit }: IFactsTableProps) => {
   const { facts, deleteFact, isFetching } = useFactsContext();
 
   return (
-    <Table
-      loading={isFetching}
-      data={facts}
-      height={400}
-      width={1000}
-      wordWrap={"break-word"}
-    >
-      <Column align="center" flexGrow={1} fixed>
+    <Table data={facts} height={400} loading={isFetching} width={800} wordWrap={'break-word'}>
+      <Column align="center" fixed flexGrow={1}>
         <HeaderCell>Fact</HeaderCell>
         <Cell dataKey="fact" />
       </Column>
       <Column fixed width={60}>
         <HeaderCell>{null}</HeaderCell>
-        <Cell style={{ padding: "6px" }}>
+        <Cell>
           {(rowData) => (
-            <Button
-              appearance="link"
-              onClick={() => handleEdit(rowData as FactType)}
-            >
+            <Button appearance="link" onClick={() => handleEdit(rowData as FactType)}>
               Edit
             </Button>
           )}
@@ -39,7 +30,7 @@ const FactsTable = ({ handleEdit }: IFactsTableProps) => {
       </Column>
       <Column fixed width={100}>
         <HeaderCell>{null}</HeaderCell>
-        <Cell style={{ padding: "6px" }}>
+        <Cell>
           {({ id }) => (
             <Button appearance="link" onClick={() => deleteFact(id)}>
               Delete

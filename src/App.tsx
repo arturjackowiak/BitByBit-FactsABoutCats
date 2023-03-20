@@ -1,10 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 
-import AppLayout from "./layouts/AppLayout/AppLayout";
-import { EViewType } from "./enums/EViewType";
-import HomePage from "./pages/HomePage/HomePage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import RandomFactPage from "./pages/RandomFactPage/RandomFactPage";
+import AppLayout from './layouts/AppLayout/AppLayout';
+import { EViewType } from './enums/EViewType';
+import HomePage from './pages/HomePage/HomePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import RandomFactPage from './pages/RandomFactPage/RandomFactPage';
 
 function App() {
   return (

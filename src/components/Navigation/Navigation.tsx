@@ -1,7 +1,7 @@
-import { Navbar, Nav } from "rsuite";
+import { Navbar, Nav } from 'rsuite';
 
-import { EViewType } from "../../enums/EViewType";
-import { useNavigation } from "./hooks/useNavigation";
+import { EViewType } from '../../enums/EViewType';
+import { useNavigation } from './hooks/useNavigation';
 
 const Navigation = () => {
   const { activeRoute, handleSelect } = useNavigation();

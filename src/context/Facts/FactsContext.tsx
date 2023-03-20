@@ -1,7 +1,7 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
-import { FactType } from "../../types/FactType";
-import { useFacts } from "./hooks/useFacts";
+import { FactType } from '../../types/FactType';
+import { useFacts } from './hooks/useFacts';
 
 interface IFactsContext {
   addFact: (newFact: FactType) => void;
@@ -21,9 +21,7 @@ const FactsContextProvider = ({ children }: IFactsContextProviderProps) => {
   const { facts, addFact, editFact, deleteFact, isFetching } = useFacts();
 
   return (
-    <FactsContext.Provider
-      value={{ facts, deleteFact, editFact, addFact, isFetching }}
-    >
+    <FactsContext.Provider value={{ facts, deleteFact, editFact, addFact, isFetching }}>
       {children}
     </FactsContext.Provider>
   );
@@ -32,7 +30,7 @@ const FactsContextProvider = ({ children }: IFactsContextProviderProps) => {
 const useFactsContext = () => {
   const context = useContext(FactsContext);
   if (context === undefined) {
-    throw new Error("You have to add FactsContextProvider");
+    throw new Error('You have to add FactsContextProvider');
   }
   return context;
 };

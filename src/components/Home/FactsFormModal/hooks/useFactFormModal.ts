@@ -1,30 +1,27 @@
-import { nanoid } from "nanoid";
-import { useCallback } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { nanoid } from 'nanoid';
+import { useCallback } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { useFactsContext } from "../../../../context/Facts/FactsContext";
-import { FactType } from "../../../../types/FactType";
-import { factSchema } from "../../../../schemas/factSchema";
+import { useFactsContext } from '../../../../context/Facts/FactsContext';
+import { FactType } from '../../../../types/FactType';
+import { factSchema } from '../../../../schemas/factSchema';
 
 interface IFactFormModalProps {
   defaultFact?: FactType;
   closeHandler: () => void;
 }
 
-export const useFactFormModal = ({
-  defaultFact,
-  closeHandler,
-}: IFactFormModalProps) => {
+export const useFactFormModal = ({ defaultFact, closeHandler }: IFactFormModalProps) => {
   const defaultValues = {
-    id: nanoid(),
+    id: nanoid()
   };
   const factFormModalDefaultValues = defaultFact || defaultValues;
   const { editFact, addFact } = useFactsContext();
   const methods = useForm<FactType>({
     defaultValues: factFormModalDefaultValues,
     resolver: yupResolver(factSchema),
-    mode: "onSubmit",
+    mode: 'onSubmit'
   });
 
   const handleFormSubmit = useCallback(
@@ -38,6 +35,6 @@ export const useFactFormModal = ({
 
   return {
     handleFormSubmit,
-    methods,
+    methods
   };
 };

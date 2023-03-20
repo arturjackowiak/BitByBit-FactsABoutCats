@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   align-items: center;
@@ -12,5 +12,9 @@ export const Wrapper = styled.div`
 
   .rs-table {
     border-radius: 1rem;
+  }
+
+  .rs-table-cell-content:has(button) {
+    padding: 6px;
   }
 `;

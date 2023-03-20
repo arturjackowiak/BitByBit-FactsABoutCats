@@ -6,16 +6,27 @@ interface IInputControllerProps {
   name: string;
   type?: EInputType;
   label: string;
+  maxLength?: number;
 }
 
-const InputController = ({ name, type, label }: IInputControllerProps) => {
+const InputController = ({ name, type, label, maxLength }: IInputControllerProps) => {
   const { control } = useFormContext();
   const {
     field,
-    fieldState: { error },
+    fieldState: { error }
   } = useController({ control, name });
 
-  return <Input {...field} type={type} error={error?.message} ref={field.ref} value={field.value} label={label} />;
+  return (
+    <Input
+      {...field}
+      ref={field.ref}
+      error={error?.message}
+      label={label}
+      maxLength={maxLength}
+      type={type}
+      value={field.value}
+    />
+  );
 };
 
 export default InputController;

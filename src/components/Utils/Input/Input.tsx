@@ -1,7 +1,7 @@
-import { forwardRef, Ref, InputHTMLAttributes } from "react";
+import { forwardRef, Ref, InputHTMLAttributes } from 'react';
 
-import { ErrorMessage } from "../ErrorMessage/ErrorMessage.style";
-import { Wrapper, StyledInput, StyledLabel } from "./Input.style";
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage.style';
+import { Wrapper, StyledInput, StyledLabel } from './Input.style';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: EInputType;
@@ -13,31 +13,23 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export enum EInputType {
-  NUMBER = "number",
-  TEXT = "text",
+  NUMBER = 'number',
+  TEXT = 'text'
 }
 
 const Input = forwardRef(
   (
-    {
-      type = EInputType.TEXT,
-      placeholder,
-      error,
-      name,
-      label,
-      value,
-      ...rest
-    }: IInputProps,
+    { type = EInputType.TEXT, placeholder, error, name, label, value, ...rest }: IInputProps,
     ref: Ref<HTMLInputElement>
   ) => (
     <Wrapper>
       {label && <StyledLabel>{label}</StyledLabel>}
       <StyledInput
+        ref={ref}
         id={name}
         name={name}
-        ref={ref}
-        type={type}
         placeholder={placeholder}
+        type={type}
         value={value}
         {...rest}
       />

@@ -1,25 +1,22 @@
-import { nanoid } from "nanoid";
-import { useCallback, useEffect, useState } from "react";
-import { FactType } from "../../../types/FactType";
+import { nanoid } from 'nanoid';
+import { useCallback, useEffect, useState } from 'react';
+import { FactType } from '../../../types/FactType';
 
-const defaultFactsLink = "https://catfact.ninja/facts?limit=10";
+const defaultFactsLink = 'https://catfact.ninja/facts?max_length=75';
 
 export const useFacts = () => {
-  const localFacts = JSON.parse(window.localStorage.getItem("facts") ?? "{}");
+  const localFacts = JSON.parse(window.localStorage.getItem('facts') ?? '{}');
   const [facts, setFacts] = useState<FactType[]>(localFacts);
   const [isFetching, setIsFetching] = useState(false);
 
   const deleteFact = useCallback(
-    (factId: string) =>
-      setFacts((prev) => prev.filter(({ id }) => id !== factId)),
+    (factId: string) => setFacts((prev) => prev.filter(({ id }) => id !== factId)),
     [setFacts]
   );
 
   const editFact = useCallback(
     (factId: string, editedFact: FactType) => {
-      setFacts((prev) =>
-        prev.map((fact) => (fact.id === factId ? editedFact : fact))
-      );
+      setFacts((prev) => prev.map((fact) => (fact.id === factId ? editedFact : fact)));
     },
     [setFacts]
   );
@@ -53,7 +50,7 @@ export const useFacts = () => {
   }, [fetchFacts, isFetching, facts]);
 
   useEffect(() => {
-    window.localStorage.setItem("facts", JSON.stringify(facts));
+    window.localStorage.setItem('facts', JSON.stringify(facts));
   }, [facts]);
 
   return { facts, addFact, editFact, deleteFact, isFetching };
