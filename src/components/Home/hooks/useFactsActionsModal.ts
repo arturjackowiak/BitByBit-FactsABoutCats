@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
-import { useModal } from '../../../hooks/useModal';
-import { FactType } from '../../../types/FactType';
+import { useModal } from 'Hooks/useModal';
+import { FactType } from 'Types/FactType';
 
 export const useFactsActionsModal = () => {
   const { isModalOpen, closeModal, openModal } = useModal();

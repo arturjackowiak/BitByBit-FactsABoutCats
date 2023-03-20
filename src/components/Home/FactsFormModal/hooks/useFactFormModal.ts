@@ -3,9 +3,9 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { useFactsContext } from '../../../../context/Facts/FactsContext';
-import { FactType } from '../../../../types/FactType';
-import { factSchema } from '../../../../schemas/factSchema';
+import { useFactsContext } from 'Context/Facts/FactsContext';
+import { FactType } from 'Types/FactType';
+import { factSchema } from 'Schemas/factSchema';
 
 interface IFactFormModalProps {
   defaultFact?: FactType;

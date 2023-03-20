@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { FactType } from '../../types/FactType';
+import { FactType } from 'Types/FactType';
 import { useFacts } from './hooks/useFacts';
 
 interface IFactsContext {

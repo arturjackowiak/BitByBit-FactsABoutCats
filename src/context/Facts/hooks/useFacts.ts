@@ -1,6 +1,7 @@
-import { nanoid } from 'nanoid';
 import { useCallback, useEffect, useState } from 'react';
-import { FactType } from '../../../types/FactType';
+import { nanoid } from 'nanoid';
+
+import { FactType } from 'Types/FactType';
 
 const defaultFactsLink = 'https://catfact.ninja/facts?max_length=75';
 

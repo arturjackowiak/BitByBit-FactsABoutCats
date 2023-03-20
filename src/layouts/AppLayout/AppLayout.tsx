@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import { AppLayoutWrapper } from './AppLayout.style';
-import Navigation from '../../components/Navigation/Navigation';
+import Navigation from 'Components/Navigation/Navigation';
 
 const AppLayout = () => (
   <AppLayoutWrapper>

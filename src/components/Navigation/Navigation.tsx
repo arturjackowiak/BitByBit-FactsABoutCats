@@ -1,6 +1,6 @@
 import { Navbar, Nav } from 'rsuite';
 
-import { EViewType } from '../../enums/EViewType';
+import { EViewType } from 'Enums/EViewType';
 import { useNavigation } from './hooks/useNavigation';
 
 const Navigation = () => {

@@ -1,7 +1,7 @@
 import { Table, Button } from 'rsuite';
 
-import { useFactsContext } from '../../../context/Facts/FactsContext';
-import { FactType } from '../../../types/FactType';
+import { useFactsContext } from 'Context/Facts/FactsContext';
+import { FactType } from 'Types/FactType';
 
 const { Column, HeaderCell, Cell } = Table;
 

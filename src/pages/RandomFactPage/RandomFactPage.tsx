@@ -1,4 +1,4 @@
-import RandomFact from '../../components/RandomFact/RandomFact';
+import RandomFact from 'Components/RandomFact/RandomFact';
 
 const RandomFactPage = () => <RandomFact />;
 

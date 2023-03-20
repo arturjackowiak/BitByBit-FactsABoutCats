@@ -1,6 +1,6 @@
 import { forwardRef, Ref, InputHTMLAttributes } from 'react';
 
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage.style';
+import { ErrorMessage } from 'Components/Utils/ErrorMessage/ErrorMessage.style';
 import { Wrapper, StyledInput, StyledLabel } from './Input.style';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {

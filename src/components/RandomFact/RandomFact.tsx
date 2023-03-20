@@ -1,6 +1,6 @@
 import { Button } from 'rsuite';
-import { useRandomFact } from './hooks/useRandomFact';
 
+import { useRandomFact } from './hooks/useRandomFact';
 import { Wrapper, Text } from './RandomFact.style';
 
 const RandomFact = () => {

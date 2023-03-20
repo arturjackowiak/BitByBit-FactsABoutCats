@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
-import { useFactsContext } from '../../../context/Facts/FactsContext';
-import { getRandomElementFromArray } from '../../../helpers/getRandomElementFromArray';
+import { useFactsContext } from 'Context/Facts/FactsContext';
+import { getRandomElementFromArray } from 'Helpers/getRandomElementFromArray';
 
 export const useRandomFact = () => {
   const { facts } = useFactsContext();

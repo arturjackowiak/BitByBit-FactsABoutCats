@@ -1,9 +1,9 @@
 import { FormProvider } from 'react-hook-form';
 import { Button } from 'rsuite';
 
-import { FactType } from '../../../types/FactType';
-import InputController from '../../Utils/Input/InputController/InputController';
-import Modal from '../../Utils/Modal/Modal';
+import { FactType } from 'Types/FactType';
+import InputController from 'Components/Utils/Input/InputController/InputController';
+import Modal from 'Components/Utils/Modal/Modal';
 import { ButtonsWrapper, Form } from './FactFormModal.style';
 import { useFactFormModal } from './hooks/useFactFormModal';
 
