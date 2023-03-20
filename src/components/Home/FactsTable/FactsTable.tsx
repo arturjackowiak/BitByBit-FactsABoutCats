@@ -10,10 +10,16 @@ interface IFactsTableProps {
 }
 
 const FactsTable = ({ handleEdit }: IFactsTableProps) => {
-  const { facts, deleteFact } = useFactsContext();
+  const { facts, deleteFact, isFetching } = useFactsContext();
 
   return (
-    <Table data={facts} height={400} width={1000} wordWrap={"break-word"}>
+    <Table
+      loading={isFetching}
+      data={facts}
+      height={400}
+      width={1000}
+      wordWrap={"break-word"}
+    >
       <Column align="center" flexGrow={1} fixed>
         <HeaderCell>Fact</HeaderCell>
         <Cell dataKey="fact" />

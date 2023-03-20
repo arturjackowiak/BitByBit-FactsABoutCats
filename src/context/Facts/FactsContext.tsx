@@ -1,13 +1,14 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 
 import { FactType } from "../../types/FactType";
 import { useFacts } from "./hooks/useFacts";
 
 interface IFactsContext {
-  facts: FactType[];
+  addFact: (newFact: FactType) => void;
   deleteFact: (factId: string) => void;
   editFact: (factId: string, editedFact: FactType) => void;
-  addFact: (newFact: FactType) => void;
+  facts: FactType[];
+  isFetching: boolean;
 }
 
 interface IFactsContextProviderProps {
@@ -17,10 +18,12 @@ interface IFactsContextProviderProps {
 const FactsContext = createContext<IFactsContext | undefined>(undefined);
 
 const FactsContextProvider = ({ children }: IFactsContextProviderProps) => {
-  const { facts, addFact, editFact, deleteFact } = useFacts();
+  const { facts, addFact, editFact, deleteFact, isFetching } = useFacts();
 
   return (
-    <FactsContext.Provider value={{ facts, deleteFact, editFact, addFact }}>
+    <FactsContext.Provider
+      value={{ facts, deleteFact, editFact, addFact, isFetching }}
+    >
       {children}
     </FactsContext.Provider>
   );
