@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 
-import { useFactsContext } from "../../../context/FactsContext";
+import { useFactsContext } from "../../../context/Facts/FactsContext";
 import { getRandomElementFromArray } from "../../../helpers/getRandomElementFromArray";
 
 export const useRandomFact = () => {

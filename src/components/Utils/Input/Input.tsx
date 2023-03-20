@@ -41,7 +41,7 @@ const Input = forwardRef(
         value={value}
         {...rest}
       />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      <ErrorMessage>{error || ''}</ErrorMessage>
     </Wrapper>
   )
 );

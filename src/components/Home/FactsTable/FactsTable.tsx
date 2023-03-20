@@ -1,11 +1,16 @@
 import { Table, Button } from "rsuite";
 
-import { useFactsContext } from "../../../context/FactsContext";
+import { useFactsContext } from "../../../context/Facts/FactsContext";
+import { FactType } from "../../../types/FactType";
 
 const { Column, HeaderCell, Cell } = Table;
 
-const FactsTable = () => {
-  const { facts } = useFactsContext();
+interface IFactsTableProps {
+  handleEdit: (fact: FactType) => void;
+}
+
+const FactsTable = ({ handleEdit }: IFactsTableProps) => {
+  const { facts, deleteFact } = useFactsContext();
 
   return (
     <Table data={facts} height={400} width={1000} wordWrap={"break-word"}>
@@ -16,13 +21,24 @@ const FactsTable = () => {
       <Column fixed width={60}>
         <HeaderCell>{null}</HeaderCell>
         <Cell style={{ padding: "6px" }}>
-          <Button appearance="link">Edit</Button>
+          {(rowData) => (
+            <Button
+              appearance="link"
+              onClick={() => handleEdit(rowData as FactType)}
+            >
+              Edit
+            </Button>
+          )}
         </Cell>
       </Column>
       <Column fixed width={100}>
         <HeaderCell>{null}</HeaderCell>
         <Cell style={{ padding: "6px" }}>
-          <Button appearance="link">Delete</Button>
+          {({ id }) => (
+            <Button appearance="link" onClick={() => deleteFact(id)}>
+              Delete
+            </Button>
+          )}
         </Cell>
       </Column>
     </Table>
