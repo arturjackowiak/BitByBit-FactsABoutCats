@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import "rsuite/dist/rsuite.css";
+
 const GlobalStyles = createGlobalStyle`
 
   html {

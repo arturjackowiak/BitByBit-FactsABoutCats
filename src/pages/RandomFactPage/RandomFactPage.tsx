@@ -1,3 +1,5 @@
-const RandomFactPage = () => <div>Random fact page</div>;
+import RandomFact from "../../components/RandomFact/RandomFact";
+
+const RandomFactPage = () => <RandomFact />;
 
 export default RandomFactPage;
