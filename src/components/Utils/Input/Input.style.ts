@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.label`
   display: flex;
   flex-direction: column;
+  font-size: 4rem;
+  font-weight: 500;
   gap: 1rem;
   width: 100%;
 `;

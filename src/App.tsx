@@ -1,20 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import { Suspense } from 'react';
 
-import AppLayout from 'Layouts/AppLayout/AppLayout';
-import { EViewType } from 'Enums/EViewType';
-import HomePage from 'Pages/HomePage/HomePage';
-import NotFoundPage from 'Pages/NotFoundPage/NotFoundPage';
-import RandomFactPage from 'Pages/RandomFactPage/RandomFactPage';
+import { FactsContextProvider } from 'Context/Facts/FactsContext';
+import { router } from 'Routes/router';
+import FullSiteLoader from 'Components/FullSiteLoader/FullSiteLoader';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorHandler from 'Components/ErrorBoundary/ErrorHandler';
 
 function App() {
   return (
-    <Routes>
-      <Route element={<AppLayout />} path={EViewType.HOME}>
-        <Route element={<HomePage />} path={EViewType.HOME} />
-        <Route element={<RandomFactPage />} path={EViewType.RANDOM_FACT} />
-        <Route element={<NotFoundPage />} path={EViewType.NOT_FOUND} />
-      </Route>
-    </Routes>
+    <FactsContextProvider>
+      <ErrorBoundary FallbackComponent={ErrorHandler}>
+        <Suspense fallback={<FullSiteLoader />}>
+          <RouterProvider router={router} />
+        </Suspense>
+      </ErrorBoundary>
+    </FactsContextProvider>
   );
 }
 

@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: 'Components', replacement: path.resolve(__dirname, 'src/components') },
+      { find: 'Routes', replacement: path.resolve(__dirname, 'src/routes') },
       { find: 'Styles', replacement: path.resolve(__dirname, 'src/styles') },
       { find: 'Hooks', replacement: path.resolve(__dirname, 'src/hooks') },
       { find: 'Context', replacement: path.resolve(__dirname, 'src/context') },

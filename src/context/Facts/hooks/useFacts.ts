@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { nanoid } from 'nanoid';
 
 import { FactType } from 'Types/FactType';
@@ -10,6 +10,7 @@ export const useFacts = () => {
   const [facts, setFacts] = useState<FactType[]>(localFacts);
   const [isFetching, setIsFetching] = useState(false);
   const firstRender = useRef(true);
+  const [startTransition] = useTransition();
 
   const deleteFact = useCallback(
     (factId: string) => setFacts((prev) => prev.filter(({ id }) => id !== factId)),
@@ -58,12 +59,7 @@ export const useFacts = () => {
     window.localStorage.setItem('facts', JSON.stringify(facts));
   }, [facts]);
 
-  const memoizedFacts = useMemo(
-    () => ({
-      ...facts
-    }),
-    [facts]
-  );
+  const memoizedFacts = useMemo(() => [...facts], [facts]);
 
   return { facts: memoizedFacts, addFact, editFact, deleteFact, isFetching };
 };
