@@ -50,7 +50,7 @@ export const useFacts = () => {
   };
 
   useEffect(() => {
-    if (!firstRender.current) return;
+    if (!firstRender.current || facts.length) return;
     fetchFacts();
     firstRender.current = false;
   }, []);
