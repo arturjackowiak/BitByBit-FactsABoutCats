@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import { FactType } from 'Types/FactType';
@@ -10,7 +10,6 @@ export const useFacts = () => {
   const [facts, setFacts] = useState<FactType[]>(localFacts);
   const [isFetching, setIsFetching] = useState(false);
   const firstRender = useRef(true);
-  const [startTransition] = useTransition();
 
   const deleteFact = useCallback(
     (factId: string) => setFacts((prev) => prev.filter(({ id }) => id !== factId)),
@@ -36,12 +35,12 @@ export const useFacts = () => {
     try {
       const response = await fetch(defaultFactsLink);
       const { data } = await response.json();
-      data.forEach((fact: FactType) => ({
+      const factsList = data.map((fact: FactType) => ({
         ...fact,
         id: nanoid()
       }));
 
-      setFacts(data);
+      setFacts(factsList);
     } catch (error) {
       console.error(error);
     } finally {
