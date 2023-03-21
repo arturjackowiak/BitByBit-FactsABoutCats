@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import { FactType } from 'Types/FactType';
@@ -57,7 +57,5 @@ export const useFacts = () => {
     window.localStorage.setItem('facts', JSON.stringify(facts));
   }, [facts]);
 
-  const memoizedFacts = useMemo(() => [...facts], [facts]);
-
-  return { facts: memoizedFacts, addFact, editFact, deleteFact, isFetching };
+  return { facts, addFact, editFact, deleteFact, isFetching };
 };
